@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: 001-create-service-request
+      id: 003-create-service-request
       author: Azamat Shauyenbekov
       changes:
         - createTable:
-            tableName: service_request
+            tableName: service_requests
             columns:
               - column:
                   name: id
@@ -25,10 +25,9 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: user_id
-                  type: Long
+                  type: BIGINT
                   constraints:
                     nullable: false
-
               - column:
                   name: created_at
                   type: TIMESTAMP
@@ -39,11 +38,22 @@ databaseChangeLog:
                   name: updated_at
                   type: TIMESTAMP
               - column:
+                  type: BIGINT
                   name: version
-
+              - column:
+                  name: car_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
         - addForeignKeyConstraint:
-            baseTableName: service_request
+            baseTableName: service_requests
             baseColumnNames: user_id
             constraintName: fk_service_request_user
-            referencedTableName: user
+            referencedTableName: users
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            baseTableName: service_requests
+            baseColumnNames: car_id
+            constraintName: fk_service_request_car
+            referencedTableName: cars
             referencedColumnNames: id

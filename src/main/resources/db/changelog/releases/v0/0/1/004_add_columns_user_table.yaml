@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-add-columns
+      author: Azamat Shauyenbekov
+      changes:
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: firstname
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lastname
+                  type: varchar(255)
+                  constraints:
+                    nullable: false

@@ -1,1 +1,44 @@
-spring.application.name=CTO
+server:
+  port: 8089
+
+spring:
+  application:
+    name: cto-service
+  datasource:
+    url: jdbc:postgresql://localhost:3432/cto_db
+    username: root
+    password: root
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+  jpa:
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+      hibernate.type: true
+      hibernate.use_sql_comments: true
+  kafka:
+    admin:
+      properties:
+        offsets.topic.replication.factor: 1
+        transaction.state.log.replication.factor: 1
+        transaction.state.log.min.isr: 1
+    bootstrapServers:
+      - kafka:9092
+    topics:
+      - name: "work-status"
+        partitions: 4
+        replication-factor: 1
+      - name: "notification"
+        partitions: 4
+        replication-factor: 1
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql: TRACE
+
+springdoc:
+  swagger-ui:
+    path: /documentation/
+  paths-to-match: /**
+  override-with-generic-response: false
+

@@ -1,2 +1,11 @@
-package com.example.cto.model.enums;public class ServiceRequestStatus {
+package com.example.cto.model.enums;
+
+public enum ServiceRequestStatus {
+
+    NEW,
+    ACCEPTED,
+    IN_PROGRESS,
+    REPAIR_COMPLETED,
+    CLOSED
+
 }

@@ -1,6 +1,48 @@
 databaseChangeLog:
   - changeSet:
-      id: 0
-      author: admin
+      id: insert-test-cars
+      author: Azamat Shauyenbekov
       changes:
-        -
+        - insert:
+            tableName: cars
+            columns:
+              - column:
+                  name: id
+                  value: 2001
+              - column:
+                  name: name
+                  value: "Toyota Camry"
+              - column:
+                  name: user_id
+                  value: 1001  # Alice User1
+              - column:
+                  name: created_at
+                  valueDate: "2025-06-08T11:00:00"
+              - column:
+                  name: updated_at
+                  valueDate: "2025-06-08T11:00:00"
+              - column:
+                  name: version
+                  value: 0
+
+        - insert:
+            tableName: cars
+            columns:
+              - column:
+                  name: id
+                  value: 2002
+              - column:
+                  name: name
+                  value: "Honda Civic"
+              - column:
+                  name: user_id
+                  value: 1002  # Bob User2
+              - column:
+                  name: created_at
+                  valueDate: "2025-06-08T11:05:00"
+              - column:
+                  name: updated_at
+                  valueDate: "2025-06-08T11:05:00"
+              - column:
+                  name: version
+                  value: 0

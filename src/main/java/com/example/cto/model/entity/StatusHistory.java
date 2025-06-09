@@ -1,19 +1,17 @@
-package com.example.cto.model;
+package com.example.cto.model.entity;
 
 import com.example.cto.model.entity.ServiceRequest;
 import com.example.cto.model.enums.ServiceRequestStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Builder
 @Entity
-@Table(name = "status_history")
+@Table(name = "status_histories")
 @NoArgsConstructor
 @AllArgsConstructor
 public class StatusHistory {
@@ -29,7 +27,7 @@ public class StatusHistory {
     @Column(name = "changed_at", nullable = false)
     private LocalDateTime changedAt;
 
-    @Column(name = "reason")
+    @Column(name = "some_job")
     private String someJob;
 
     @Column(name = "changed_by", nullable = false)

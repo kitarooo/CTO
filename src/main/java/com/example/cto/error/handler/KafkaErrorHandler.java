@@ -1,5 +1,6 @@
-package com.example.cto.error.exceptions;
+package com.example.cto.error.handler;
 
+import com.example.cto.error.exceptions.InsufficientFundsException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -26,7 +27,7 @@ import java.util.List;
 @Component
 public class KafkaErrorHandler extends DefaultErrorHandler {
 
-    public KafkaErrorHandler(KafkaTemplate<String, String> dlqTemplate) {
+    public KafkaErrorHandler(KafkaTemplate<String, Object> dlqTemplate) {
         super(
                 new DeadLetterPublishingRecoverer(
                         dlqTemplate,
@@ -51,5 +52,5 @@ public class KafkaErrorHandler extends DefaultErrorHandler {
                                 MessageListenerContainer container) {
         super.handleRemaining(thrownException, records, consumer, container);
     }
-}
 
+}

@@ -1,17 +1,18 @@
-package backend.microservices.testproject.dto.request;
+package com.example.cto.dto.request;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
 public class RegistrationRequest {
-    String username;
-    String password;
-    String confirmPassword;
-    String firstname;
-    String lastname;
+
+    private String email;
+    private String password;
+    private String firstname;
+    private String lastname;
+
 }

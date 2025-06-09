@@ -1,15 +1,15 @@
-package backend.microservices.testproject.dto.request;
+package com.example.cto.dto.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class LoginRequest {
-    private String username;
+
+    private String email;
     private String password;
+
 }

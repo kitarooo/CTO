@@ -1,4 +1,4 @@
-package com.example.cto.dto.kafka;
+package com.example.cto.kafka;
 
 import com.example.cto.model.enums.ServiceRequestStatus;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ public class StatusChangeEvent {
     private Long requestId;
     private ServiceRequestStatus newStatus;
     private LocalDateTime changedAt;
-    private String reason;
+    private String someJob;
     private String changedBy;
 }
 

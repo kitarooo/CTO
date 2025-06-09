@@ -1,4 +1,4 @@
-package backend.microservices.testproject.exception;
+package com.example.cto.error.exceptions;
 
 public class NotFoundException extends RuntimeException{
     public NotFoundException(String message) {

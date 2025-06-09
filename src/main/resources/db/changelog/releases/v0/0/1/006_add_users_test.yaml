@@ -1,6 +1,58 @@
 databaseChangeLog:
   - changeSet:
-      id: 0
-      author: admin
+      id: insert-test-users
+      author: Azamat Shauyenbekov
       changes:
-        -
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: id,             value: 1001 }
+              - column: { name: firstname,      value: "Alice" }
+              - column: { name: lastname,       value: "User1" }
+              - column: { name: email,          value: "alice.user@example.com" }
+              - column: { name: password_hash,  value: "$2a$10$ghbkUjWSVlEzGs.YILZ2AeV/r2oKjwNb.OdWjciy7p08a31Zifyli" }
+              - column: { name: role,           value: "ROLE_USER" }
+              - column: { name: created_at,     valueDate: "2025-06-08T10:00:00" }
+              - column: { name: updated_at,     valueDate: "2025-06-08T10:00:00" }
+              - column: { name: version,        value: 0 }
+
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: id,             value: 1002 }
+              - column: { name: firstname,      value: "Bob" }
+              - column: { name: lastname,       value: "User2" }
+              - column: { name: email,          value: "bob.user@example.com" }
+              - column: { name: password_hash,  value: "$2a$10$ghbkUjWSVlEzGs.YILZ2AeV/r2oKjwNb.OdWjciy7p08a31Zifyli" }
+              - column: { name: role,           value: "ROLE_USER" }
+              - column: { name: created_at,     valueDate: "2025-06-08T10:01:00" }
+              - column: { name: updated_at,     valueDate: "2025-06-08T10:01:00" }
+              - column: { name: version,        value: 0 }
+
+
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: id,             value: 1003 }
+              - column: { name: firstname,      value: "Carol" }
+              - column: { name: lastname,       value: "Employee1" }
+              - column: { name: email,          value: "carol.employee@example.com" }
+              - column: { name: password_hash,  value: "$2a$10$ghbkUjWSVlEzGs.YILZ2AeV/r2oKjwNb.OdWjciy7p08a31Zifyli" }
+              - column: { name: role,           value: "ROLE_EMPLOYEE" }
+              - column: { name: created_at,     valueDate: "2025-06-08T10:02:00" }
+              - column: { name: updated_at,     valueDate: "2025-06-08T10:02:00" }
+              - column: { name: version,        value: 0 }
+
+
+        - insert:
+            tableName: users
+            columns:
+              - column: { name: id,             value: 1004 }
+              - column: { name: firstname,      value: "David" }
+              - column: { name: lastname,       value: "Employee2" }
+              - column: { name: email,          value: "david.employee@example.com" }
+              - column: { name: password_hash,  value: "$2a$10$ghbkUjWSVlEzGs.YILZ2AeV/r2oKjwNb.OdWjciy7p08a31Zifyli" }
+              - column: { name: role,           value: "ROLE_EMPLOYEE" }
+              - column: { name: created_at,     valueDate: "2025-06-08T10:03:00" }
+              - column: { name: updated_at,     valueDate: "2025-06-08T10:03:00" }
+              - column: { name: version,        value: 0 }

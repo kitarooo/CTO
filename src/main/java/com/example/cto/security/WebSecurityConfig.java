@@ -1,6 +1,6 @@
-package backend.microservices.testproject.security;
+package com.example.cto.security;
 
-import backend.microservices.testproject.security.jwt.JwtAuthenticationFilter;
+import com.example.cto.security.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,20 +14,15 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
-@EnableWebSecurity
 @Configuration
+@EnableWebSecurity
 @RequiredArgsConstructor
-public class SecurityConfig extends WebSecurityConfiguration {
+public class WebSecurityConfig {
     private final AuthenticationProvider authProvider;
     private final JwtAuthenticationFilter jwtAuthFilter;
 
     public String[] PERMIT_ALL = {
             "/api/v1/users/**",
-            "/api/v1/news/all",
-            "/api/v1/news/{id}",
-            "/api/v1/product/{id}",
-            "/api/v1/products/all",
-            "/api/v1/orders/create",
             "/swagger*/**",
             "/swagger-ui/**",
             "/backend/swagger-ui.html",
@@ -35,11 +30,17 @@ public class SecurityConfig extends WebSecurityConfiguration {
             "/v3/api-docs/**"
     };
 
-    public String[] ADMIN = {
-            "/api/v1/news/createNews",
-            "/api/v1/products/add",
-            "/api/v1/orders/all",
-            "/api/v1/order/{id}"
+    public String[] USER = {
+            "/api/v1/service-requests/create",
+            "/api/v1/service-requests/user"
+    };
+
+    public String[] EMPLOYEE = {
+            "/api/v1/service-requests",
+            "/api/v1/service-requests/accept/*",
+            "/api/v1/service-requests/processing/*",
+            "/api/v1/service-requests/repair/*",
+            "/api/v1/service-requests/finish/*"
     };
 
     @Bean
@@ -47,7 +48,8 @@ public class SecurityConfig extends WebSecurityConfiguration {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(ADMIN).hasRole("ADMIN")
+                        .requestMatchers(EMPLOYEE).hasRole("EMPLOYEE")
+                        .requestMatchers(USER).hasRole("USER")
                         .requestMatchers(PERMIT_ALL).permitAll().anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authProvider)
