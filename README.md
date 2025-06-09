@@ -14,8 +14,8 @@ CTO Service API — это микросервис для управления з
 
 ## Установка проекта
 
-# Клонирование репозитория
-# (Переход в корневую папку с docker-compose and dockerfile) cd cto-service
+### Клонирование репозитория
+### (Переход в корневую папку с docker-compose and dockerfile) cd cto-service
 
 ### Сборка проекта
 ./gradlew build -x test
