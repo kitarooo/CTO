@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-service-request
+      author: Azamat Shauyenbekov
+      changes:
+        - createTable:
+            tableName: service_request
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: some_job
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: service_request_status
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: Long
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+              - column:
+                  name: version
+
+        - addForeignKeyConstraint:
+            baseTableName: service_request
+            baseColumnNames: user_id
+            constraintName: fk_service_request_user
+            referencedTableName: user
+            referencedColumnNames: id
