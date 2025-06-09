@@ -25,7 +25,7 @@ docker-compose up --build -d
 # Доступные сервисы после запуска
 | Сервис      | Адрес подключения                              |
 | ----------- | ---------------------------------------------- |
-| Backend API | [http://localhost:8080](http://localhost:8080) |
+| Backend API | [http://localhost:8089](http://localhost:8089) |
 | PostgreSQL  | jdbc\:postgresql://localhost:3432              |
 | Kafka       | localhost:9092                                 |
 | Zookeeper   | localhost:2181                                 |
