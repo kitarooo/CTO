@@ -48,6 +48,6 @@ docker-compose up --build -d
 | Метод | Endpoint                             | Описание                                |
 | ----- | ------------------------------------ | --------------------------------------- |
 | GET   | /api/v1/service-requests/user        | Получить заявки пользователя            |
-| POST  | /api/v1/service-requests             | Создать новую заявку                    |
+| POST  | /api/v1/service-requests/create      | Создать новую заявку                    |
 | POST | /api/v1/service-requests/accept/{id} | Принять заявку (только для сотрудников) |
 
